@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter | OIBSIP</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="converter-card">
+    <header class="card-header">
+      <span class="badge">Oasis Infobyte &bull; Task 3</span>
+      <h1>Temperature Converter</h1>
+      <p>Convert seamlessly between Celsius, Fahrenheit, and Kelvin.</p>
+    </header>
+
+    <form id="tempForm" onsubmit="event.preventDefault(); convertTemperature();">
+      <div class="input-group">
+        <label for="tempInput">Enter Temperature</label>
+        <input 
+          type="number" 
+          id="tempInput" 
+          step="any" 
+          placeholder="e.g. 25" 
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="unitSelect">Input Unit</label>
+        <select id="unitSelect">
+          <option value="celsius">Celsius (&deg;C)</option>
+          <option value="fahrenheit">Fahrenheit (&deg;F)</option>
+          <option value="kelvin">Kelvin (K)</option>
+        </select>
+      </div>
+
+      <button type="submit" id="convertBtn">Convert Now</button>
+      <button type="button" id="resetBtn" onclick="resetForm()">Reset</button>
+    </form>
+
+    <div id="errorBox" class="error-box hidden"></div>
+
+    <section id="resultsSection" class="results-section hidden">
+      <h3>Converted Temperatures</h3>
+      <div class="results-grid">
+        <div class="result-tile">
+          <span class="unit-title">Celsius</span>
+          <span class="unit-val" id="resCelsius">--</span>
+        </div>
+        <div class="result-tile">
+          <span class="unit-title">Fahrenheit</span>
+          <span class="unit-val" id="resFahrenheit">--</span>
+        </div>
+        <div class="result-tile">
+          <span class="unit-title">Kelvin</span>
+          <span class="unit-val" id="resKelvin">--</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
